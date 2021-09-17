@@ -4,9 +4,6 @@ import {SelectItem} from 'primeng/api';
 import {Product} from '../domain/product';
 import {ProductService} from '../service/productservice';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -43,6 +40,7 @@ export class DashboardDemoComponent implements OnInit {
         this.productService.getProducts().then(data => this.products = data);
         this.eventService.getEvents().then(events => {
             this.events = events;
+            this.fullcalendarOptions = {...this.fullcalendarOptions, ...{events: events}};
         });
 
         this.cities = [];
@@ -60,25 +58,30 @@ export class DashboardDemoComponent implements OnInit {
                     label: 'First Dataset',
                     data: [, 6, 3, 2, 7, 9, ],
                     fill: false,
-                    borderColor: '#FFC107'
+                    borderColor: '#FFC107',
+                    tension: .4
                 },
                 {
                     label: 'Second Dataset',
                     data: [, 2, 1, 3, 6, 8, ],
                     fill: false,
-                    borderColor: '#03A9F4'
+                    borderColor: '#03A9F4',
+                    tension: .4
                 }
             ]
         };
 
         this.fullcalendarOptions = {
-            plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
-            defaultDate: '2017-02-12',
-            header: {
-                left: 'prev,next,today',
+            initialDate: '2021-02-01',
+            headerToolbar: {
+                left: 'prev,next today',
                 center: 'title',
-                right: ''
-            }
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            editable: true,
+            selectable: true,
+            selectMirror: true,
+            dayMaxEvents: true,
         };
     }
 }
