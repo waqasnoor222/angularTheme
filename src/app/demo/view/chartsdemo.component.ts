@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './chartsdemo.component.html'
@@ -24,6 +25,12 @@ export class ChartsDemoComponent implements OnInit {
     polarOptions: any;
 
     radarOptions: any;
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Charts'}
+        ]);
+    }
 
     ngOnInit() {
         this.lineData = {
@@ -62,7 +69,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: '#A0A7B5'
                     },
                     grid: {
-                        color:  'rgba(160, 167, 181, .3)',
+                        color: 'rgba(160, 167, 181, .3)',
                     }
                 },
                 y: {
@@ -70,7 +77,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: '#A0A7B5'
                     },
                     grid: {
-                        color:  'rgba(160, 167, 181, .3)',
+                        color: 'rgba(160, 167, 181, .3)',
                     }
                 },
             }
@@ -108,7 +115,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: '#A0A7B5'
                     },
                     grid: {
-                        color:  'rgba(160, 167, 181, .3)',
+                        color: 'rgba(160, 167, 181, .3)',
                     }
                 },
                 y: {
@@ -116,7 +123,7 @@ export class ChartsDemoComponent implements OnInit {
                         color: '#A0A7B5'
                     },
                     grid: {
-                        color:  'rgba(160, 167, 181, .3)',
+                        color: 'rgba(160, 167, 181, .3)',
                     }
                 },
             }
