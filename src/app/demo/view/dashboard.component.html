@@ -1,6 +1,6 @@
 <div class="dashboard">
-    <div class="p-grid">
-        <div class="p-col-12 p-md-12 p-lg-4">
+    <div class="grid">
+        <div class="col-12 md:col-12 lg:col-4">
             <div class="overview-box monthly-sales">
                 <div class="overview-title">SALES</div>
                 <i class="pi pi-arrow-circle-up"></i>
@@ -11,7 +11,7 @@
                 <img src="assets/layout/images/icon-sales.png" alt="california-layout" />
             </div>
         </div>
-        <div class="p-col-12 p-md-12 p-lg-4">
+        <div class="col-12 md:col-12 lg:col-4">
             <div class="overview-box monthly-views">
                 <div class="overview-title">VIEWS
                     <i class="pi pi-arrow-circle-down"></i>
@@ -22,7 +22,7 @@
                 <img src="assets/layout/images/icon-views.png" alt="california-layout" />
             </div>
         </div>
-        <div class="p-col-12 p-md-12 p-lg-4">
+        <div class="col-12 md:col-12 lg:col-4">
             <div class="overview-box monthly-users">
                 <div class="overview-title">USERS
                     <i class="pi pi-arrow-circle-up"></i>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="col-12 md:col-6 lg:col-3">
             <div class="stats">
                 <div class="stats-icon">
                     <img src="assets/layout/images/icon-message.png" alt="california-layout" class="message-icon" />
@@ -45,7 +45,7 @@
                     <span>5</span> messages today</div>
             </div>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="col-12 md:col-6 lg:col-3">
             <div class="stats">
                 <div class="stats-icon">
                     <img src="assets/layout/images/icon-doc.png" alt="california-layout" class="doc-icon" />
@@ -56,7 +56,7 @@
                     <span>21%</span> more than yesterday</div>
             </div>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="col-12 md:col-6 lg:col-3">
             <div class="stats">
                 <div class="stats-icon">
                     <img src="assets/layout/images/icon-mark.png" alt="california-layout" class="mark-icon" />
@@ -67,7 +67,7 @@
                     <span>12%</span> less than yesterday</div>
             </div>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="col-12 md:col-6 lg:col-3">
             <div class="stats">
                 <div class="stats-icon">
                     <img src="assets/layout/images/icon-profile.png" alt="california-layout" class="profile-icon" />
@@ -78,7 +78,7 @@
                     <span>35210</span> total page view today</div>
             </div>
         </div>
-        <div class="p-col-12 p-md-12 p-lg-4">
+        <div class="col-12 md:col-12 lg:col-4">
             <p-panel header="Weekly Tasks" styleClass="weekly-tasks">
                 <ul>
                     <li>
@@ -141,29 +141,29 @@
             </p-panel>
         </div>
 
-        <div class="p-col-12 p-md-12 p-lg-4 p-fluid">
+        <div class="col-12 md:col-12 lg:col-4 p-fluid">
             <p-panel header="Resolution Center" styleClass="resolution-center">
-                <div class="p-grid">
-                    <div class="p-col-12" style="padding: 0 .5em">
+                <div class="grid">
+                    <div class="col-12" style="padding: 0 .5em">
                         <label for="email">E-mail Address</label>
                     </div>
-                    <div class="p-col-12">
+                    <div class="col-12">
                         <input type="text" id="email" pInputText placeholder="E-mail Address">
                     </div>
-                    <div class="p-col-12" style="padding: 0 .5em">
+                    <div class="col-12" style="padding: 0 .5em">
                         <label for="message">Message</label>
                     </div>
-                    <div class="p-col-12">
+                    <div class="col-12">
                         <textarea type="text" rows="5" id="message" pInputTextarea placeholder="Message"></textarea>
                     </div>
-                    <div class="p-col-12">
+                    <div class="col-12">
                         <button type="button" label="Send" pButton></button>
                     </div>
                 </div>
             </p-panel>
         </div>
 
-        <div class="p-col-12 p-md-12 p-lg-4">
+        <div class="col-12 md:col-12 lg:col-4">
             <p-panel styleClass="team" header="Team">
                 <ul>
                     <li>
@@ -221,7 +221,7 @@
                 </ul>
             </p-panel>
         </div>
-        <div class="p-col-12 p-md-12 p-lg-6">
+        <div class="col-12 md:col-12 lg:col-6">
             <p-panel styleClass="chart" header="Chart">
                 <p-chart type="line" [data]="chartData"></p-chart>
             </p-panel>
@@ -399,7 +399,7 @@
             </p-panel>
         </div>
 
-        <div class="p-col-12 p-md-12 p-lg-6">
+        <div class="col-12 md:col-12 lg:col-6">
             <p-panel styleClass="timeline" header="Timeline">
                 <div class="timeline-line"></div>
                 <ul>
@@ -499,7 +499,7 @@
             </p-panel>
         </div>
 
-        <div class="p-col-12 p-md-12 p-lg-6">
+        <div class="col-12 md:col-12 lg:col-6">
             <p-panel header="Inventory" styleClass="inventory">
                 <p-table [value]="products" [paginator]="true" [rows]="5" styleClass="p-datatable-customers">
 					<ng-template pTemplate="header">
@@ -522,16 +522,16 @@
 					<ng-template pTemplate="body" let-product>
 						<tr>
 							<td>
-								<span class="p-column-title">Id</span>
+								<span class="column-title">Id</span>
 								{{product.id}}</td>
 							<td>
-								<span class="p-column-title">Category</span>
+								<span class="column-title">Category</span>
 								{{product.category}}</td>
 							<td>
-								<span class="p-column-title">Price</span>
+								<span class="column-title">Price</span>
 								{{product.price | currency:'USD'}}</td>
 							<td>
-								<span class="p-column-title">Status</span>
+								<span class="column-title">Status</span>
 								<span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
 							</td>
 							<td style="text-align: center">
@@ -543,29 +543,29 @@
             </p-panel>
         </div>
 
-        <div class="p-col-12 p-md-12 p-lg-6">
-            <div class="card profile-details p-col-12"  style="padding: 0">
+        <div class="col-12 md:col-12 lg:col-6">
+            <div class="card profile-details col-12"  style="padding: 0">
                 <img src="assets/layout/images/image-profile.png" alt="california-layout" />
-                <div class="p-col-12" style="text-align: center">
+                <div class="col-12" style="text-align: center">
                     <img src="assets/layout/images/profile-avatar.png" alt="california-layout" class="profile-avatar" />
                 </div>
-                <div class="p-col-12" style="text-align: center">
+                <div class="col-12" style="text-align: center">
                     <span class="profile-name">Pauline Harrell</span>
                     <span class="profile-role">Administrator</span>
                 </div>
-                <div class="p-col-12" style="text-align: center; margin-top: -50px">
+                <div class="col-12" style="text-align: center; margin-top: -50px">
                     <p-button type="button" label="Edit Profile" ></p-button>
                 </div>
-                <div class="p-col-12">
-                    <div class="profile-statistics-panel p-col-4">
+                <div class="col-12">
+                    <div class="profile-statistics-panel col-4">
                         <span class="profile-statistics">1098</span>
                         <span class="statistics-title">Articles</span>
                     </div>
-                    <div class="profile-statistics-panel p-col-4">
+                    <div class="profile-statistics-panel col-4">
                         <span class="profile-statistics">22,681</span>
                         <span class="statistics-title">Followers</span>
                     </div>
-                    <div class="profile-statistics-panel p-col-4">
+                    <div class="profile-statistics-panel col-4">
                         <span class="profile-statistics">880</span>
                         <span class="statistics-title">Following</span>
                     </div>
