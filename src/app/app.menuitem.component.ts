@@ -22,7 +22,7 @@ import {AppMainComponent} from './app.main.component';
 			</a>
 			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="(item.routerLink && !item.items) && item.visible !== false"
 			   [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink"
-			   [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
+			   [routerLinkActiveOptions]="{exact: !item.preventExact}" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
 				<i class="layout-menuitem-icon" [ngClass]="item.icon"></i>
 				<span>{{item.label}}</span>
 				<span class="menuitem-badge" [ngClass]="item.badgeStyleClass" *ngIf="item.badge">{{item.badge}}</span>

@@ -5,8 +5,7 @@ import { Product } from '../domain/product';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
-    templateUrl: './mediademo.component.html',
-    styleUrls: ['./mediademo.scss'],
+    templateUrl: './mediademo.component.html'
 })
 export class MediaDemoComponent implements OnInit{
 
@@ -53,6 +52,7 @@ export class MediaDemoComponent implements OnInit{
 
     constructor(private productService: ProductService, private photoService: PhotoService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Media'}
         ]);
     }

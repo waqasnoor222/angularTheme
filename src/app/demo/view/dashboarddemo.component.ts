@@ -7,7 +7,7 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./tabledemo.scss'],
+    styleUrls: ['../../../assets/demo/badges.scss'],
     styles: [`
         @media screen and (max-width: 960px) {
             :host ::ng-deep .fc-header-toolbar {

@@ -88,7 +88,7 @@ import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
 // Application Components
-import {AppCodeModule} from './app.code.component';
+import {AppCodeModule} from './blocks/app-code/app.code.component';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
@@ -115,7 +115,7 @@ import {TreeDemoComponent} from './demo/view/treedemo.component';
 import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
 import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
 import {MediaDemoComponent} from './demo/view/mediademo.component';
-import {MenusDemoComponent} from './demo/view/menusdemo.component';
+import {MenusComponent} from './demo/view/menus/menus.component';
 import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
 import {MiscDemoComponent} from './demo/view/miscdemo.component';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
@@ -270,7 +270,7 @@ FullCalendarModule.registerPlugins([
         PanelsDemoComponent,
         OverlaysDemoComponent,
         MediaDemoComponent,
-        MenusDemoComponent,
+        MenusComponent,
         MessagesDemoComponent,
         MessagesDemoComponent,
         MiscDemoComponent,

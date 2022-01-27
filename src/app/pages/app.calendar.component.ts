@@ -3,15 +3,7 @@ import {EventService} from '../demo/service/eventservice';
 import {BreadcrumbService} from "../app.breadcrumb.service";
 
 @Component({
-    templateUrl: './app.calendar.component.html',
-    styles: [`
-        @media screen and (max-width: 960px) {
-            :host ::ng-deep .fc-header-toolbar {
-                display: flex;
-                flex-wrap: wrap;
-            }
-        }
-    `]
+    templateUrl: './app.calendar.component.html'
 })
 export class AppCalendarComponent implements OnInit {
 
@@ -29,6 +21,7 @@ export class AppCalendarComponent implements OnInit {
 
     constructor(private eventService: EventService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'Pages'},
             {label: 'Calendar'}
         ]);
     }
