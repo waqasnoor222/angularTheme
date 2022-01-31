@@ -2,8 +2,8 @@
 
 ## 13.1.0
 **Migration Guide**
-- Update PrimeFlex v3.
-- Update Angular 13 and PrimeNG 13.
+- Update PrimeFlex 3.1.2
+- Update Angular 13 and PrimeNG 13.1.0
 
 ## 12.2.0
 **Migration Guide**
