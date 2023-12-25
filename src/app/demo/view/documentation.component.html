@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="card docs no-margin">
             <h4>Current Version</h4>
-            <p>Angular 16 and PrimeNG 16</p>
+            <p>Angular 17 and PrimeNG 17</p>
 
             <h4>Dependencies</h4>
             <p>California has no direct dependency other than PrimeNG. More information about dependencies is available at <a href="https://www.primefaces.org/why-primeng-templates/">Why PrimeNG Templates</a> article.</p>
@@ -11,7 +11,7 @@
             <p>California is a true native application template for Angular and is distributed as a CLI project. In case CLI is not installed already, usethe command below to set it up.</p>
 
 <app-code ngPreserveWhitespaces ngNonBindable lang="markup">
-npm install -g @angular/cli
+npm install -g &#64;angular/cli
 </app-code>
 
             <p>Once CLI is ready in your system, extract the contents of the California zip file distribution, cd to the directory,
@@ -92,10 +92,10 @@ Run 'ng help' for more options.
 
 <div style="height:400px;overflow: auto;">
 <app-code ngPreserveWhitespaces ngNonBindable lang="javascript">
-import &#123;Component, OnInit&#125; from '@angular/core';
+import &#123;Component, OnInit&#125; from '&#64;angular/core';
 import &#123;AppComponent&#125; from './app.component';
 
-@Component(&#123;
+&#64;Component(&#123;
     selector: 'app-menu',
     template: `
 		&lt;ul class=&quot;layout-menu&quot;&gt;
@@ -227,8 +227,8 @@ export class AppMenuComponent implements OnInit &#123;
 
           <p>Install PrimeNG</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="markup">
-npm install primeng@latest --save
-npm install primeicons@latest --save
+npm install primeng&#64;latest --save
+npm install primeicons&#64;latest --save
 </app-code>
 
           <p>Add PrimeNG CSS at styles section in angular.json.</p>
@@ -286,7 +286,7 @@ $primaryTextColor: #ffffff;
 $highlightBg: #E3F2FD;
 $highlightTextColor: #495057;
 
-@import '../sass/theme/_theme';
+&#64;import '../sass/theme/_theme';
 </app-code>
 
             <p> An example sass command to compile the css would be;</p>
@@ -387,7 +387,7 @@ $darkMegamenuHoverTextColor:#00bfe7;
 $gradientMegamenuTopBgColor:#122e51;
 $gradientMegamenuBottomBgColor:#295b89;
 
-@import '../../sass/layout/_layout';
+&#64;import '../../sass/layout/_layout';
 </app-code>
 
             <h4>Common SASS Variables</h4>
@@ -1229,10 +1229,10 @@ $splitterGutterHandleBg:$shade300;
                 The items are dynamically generated using a BreadcrumbService where each main page that goes into the router-outlet should provide a collection of MenuItem instances.
                 Here is an example component that updates the breadcrumb.</p>
 <app-code ngPreserveWhitespaces ngNonBindable lang="javascript">
-import &#123;Component&#125; from '@angular/core';
+import &#123;Component&#125; from '&#64;angular/core';
 import &#123;BreadcrumbService&#125; from '../../breadcrumb.service';
 
-@Component(&#123;
+&#64;Component(&#123;
     templateUrl: './controlpanel.component.html'
 &#125;)
 export class ControlPanelComponent &#123;

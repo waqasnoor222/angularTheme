@@ -40,6 +40,8 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import {KnobModule} from 'primeng/knob';
 import {ListboxModule} from 'primeng/listbox';
 import {MegaMenuModule} from 'primeng/megamenu';
@@ -186,6 +188,8 @@ import {MenuService} from './app.menu.service';
         InputSwitchModule,
         InputTextModule,
         InputTextareaModule,
+        InputGroupModule,
+        InputGroupAddonModule,
         KnobModule,
         ListboxModule,
         MegaMenuModule,

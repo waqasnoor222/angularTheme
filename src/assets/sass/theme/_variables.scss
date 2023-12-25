@@ -24,6 +24,11 @@ $shade700:#495057 !default;    //text color
 $shade800:#343a40 !default;    //unused
 $shade900:#212529 !default;    //unused
 
+//selected state
+$highlightBg:rgba($primaryColor, .12) !default;
+$highlightTextColor:$primaryDarkerColor !default;
+$highlightFocusBg:rgba($primaryColor, .24) !default;
+
 //global
 $fontFamily:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $fontSize:1rem !default;
@@ -95,6 +100,8 @@ $inputListItemBg:transparent !default;
 $inputListItemTextColor:$shade700 !default;
 $inputListItemHoverBg:$shade200 !default;
 $inputListItemTextHoverColor:$shade700 !default;
+$inputListItemFocusBg:$shade300 !default;
+$inputListItemTextFocusColor:$shade700 !default;
 $inputListItemBorder:0 none !default;
 $inputListItemBorderRadius:0 !default;
 $inputListItemMargin:0 !default;
@@ -420,6 +427,9 @@ $tabviewContentPadding:$panelContentPadding !default;
 //upload
 $fileUploadProgressBarHeight:.25rem !default;
 $fileUploadContentPadding:2rem 1rem !default;
+$fileUploadContentHoverBorder: 1px dashed $primaryColor !default;
+$fileUploadFileBorder: 1px solid $shade300 !default;
+$fileUploadFilePadding: 1rem !default;
 
 //scrollpanel
 $scrollPanelTrackBorder:0 none !default;
@@ -650,9 +660,13 @@ $menuitemIconColor:$shade600 !default;
 $menuitemTextHoverColor:$shade700 !default;
 $menuitemIconHoverColor:$shade600 !default;
 $menuitemHoverBg:$shade200 !default;
+$menuitemTextFocusColor:$shade700 !default;
+$menuitemIconFocusColor:$shade700 !default;
+$menuitemFocusBg:$shade300 !default;
 $menuitemTextActiveColor:$shade700 !default;
 $menuitemIconActiveColor:$shade600 !default;
 $menuitemActiveBg:$shade200 !default;
+$menuitemActiveFocusBg:$shade200 !default;
 $menuitemSubmenuIconFontSize:.875rem !default;
 $submenuHeaderMargin:0 !default;
 $submenuHeaderPadding:.75rem 1rem !default;
@@ -771,6 +785,8 @@ $avatarTextColor:$textColor;
 $chipBg:$shade300;
 $chipTextColor:$textColor;
 $chipBorderRadius: 16px;
+$chipFocusBg:$highlightBg !default;
+$chipFocusTextColor:$highlightTextColor !default;
 
 //scrollTop
 $scrollTopBg:rgba(0,0,0,0.7);
@@ -804,6 +820,7 @@ $speedDialActionTextHoverColor: #fff !default;
 $dockActionWidth: 4rem !default;
 $dockActionHeight: 4rem !default;
 $dockItemPadding: .5rem !default;
+$dockItemBorderRadius:$borderRadius !default;
 $dockCurrentItemMargin: 1.5rem !default;
 $dockFirstItemsMargin: 1.3rem !default;
 $dockSecondItemsMargin: 0.9rem !default;
