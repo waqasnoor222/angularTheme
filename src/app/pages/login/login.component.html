@@ -1,0 +1,30 @@
+<p-toast></p-toast>
+<div class="login-main-section">
+    <div class="login-pair-parent">
+        <div class="login-left-half">
+            <div class="form-box">
+                <!-- <h4>WellCome Meezotech Managment System</h4> -->
+                <img src="../../../assets/images/logo-red.png" alt="" width="300">
+                <h1>Sign In</h1>
+                <form [formGroup]="userform" (ngSubmit)="loginForm()">
+                    <div class="input-box">
+                        <i class="pi pi-user left-icon"></i>
+                        <input type="text" placeholder="Enter Username" formControlName="username">
+                    </div>
+                    <div class="input-box">
+                        <i class="pi pi-lock left-icon"></i>
+                        <input type="password" placeholder="Enter Password" id="myInput" formControlName="password">
+                        <i class="pi pi-eye right-icon" onclick="myFunction()"></i>
+                    </div>
+                    <div class="button-box">
+                        <button type="submit" class="w-100 add-primary-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="login-right-half">
+            <div class="right-box">
+            </div>
+        </div>
+    </div>
+</div>

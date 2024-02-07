@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {Customer, Representative} from '../domain/customer';
-import {CustomerService} from '../service/customerservice';
 import {Product} from '../domain/product';
-import {ProductService} from '../service/productservice';
 import {Table} from 'primeng/table';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
 import {MessageService, ConfirmationService} from 'primeng/api'
+import { CustomerService } from '../_service/customerservice';
+import { ProductService } from '../_service/productservice';
 
 @Component({
     templateUrl: './tabledemo.component.html',

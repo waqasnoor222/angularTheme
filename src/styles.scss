@@ -5,3 +5,29 @@
 @import "../node_modules/primeicons/primeicons.css";
 @import "../node_modules/prismjs/themes/prism-coy.css";
 @import "assets/demo/flags/flags.css";
+@import "assets/partials/veriables";
+
+@font-face {
+    src: url(../src/assets/fonts/Montserrat/Montserrat-Regular.ttf);
+    font-family: primary_font_regular;
+}
+
+@font-face {
+    src: url(../src/assets/fonts/Montserrat/Montserrat-Bold.ttf);
+    font-family: primary_font_bold;
+}
+.add-primary-btn {
+    background: #cc292b;
+    padding: 16px;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    font-family: primary_font_regular;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.w-100 {
+    width: 100%;
+}

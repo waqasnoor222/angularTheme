@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {EventService} from '../service/eventservice';
 import {SelectItem} from 'primeng/api';
 import {Product} from '../domain/product';
-import {ProductService} from '../service/productservice';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
 // @fullcalendar plugins
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { EventService } from '../_service/eventservice';
+import { ProductService } from '../_service/productservice';
 
 @Component({
     templateUrl: './dashboard.component.html',

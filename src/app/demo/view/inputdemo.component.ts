@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {CountryService} from '../service/countryservice';
 import {SelectItem} from 'primeng/api';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
+import { CountryService } from '../_service/countryservice';
 
 @Component({
     templateUrl: './inputdemo.component.html',

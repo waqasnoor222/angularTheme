@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
 
 import {AccordionModule} from 'primeng/accordion';
@@ -122,7 +122,7 @@ import {EmptyDemoComponent} from './demo/view/emptydemo.component';
 import {ChartsDemoComponent} from './demo/view/chartsdemo.component';
 import {FileDemoComponent} from './demo/view/filedemo.component';
 import {DocumentationComponent} from './demo/view/documentation.component';
-import {IconsComponent} from './utilities/icons.component';
+// import {IconsComponent} from './utilities/icons.component';
 import {AppCrudComponent} from './pages/app.crud.component';
 import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
@@ -131,26 +131,29 @@ import {AppHelpComponent} from './pages/app.help.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
+// import {AppLoginComponent} from './pages/app.login.component';
 import {BlocksComponent} from './blocks/blocks/blocks.component';
 
 // Demo services
-import {CountryService} from './demo/service/countryservice';
-import {CustomerService} from './demo/service/customerservice';
-import {EventService} from './demo/service/eventservice';
-import {IconService} from './demo/service/iconservice';
-import {NodeService} from './demo/service/nodeservice';
-import {PhotoService} from './demo/service/photoservice';
-import {ProductService} from './demo/service/productservice';
+// import {CountryService} from './demo/service/countryservice';
+// import {CustomerService} from './demo/service/customerservice';
+// import {EventService} from './demo/service/eventservice';
+// import {IconService} from './demo/service/iconservice';
+// import {NodeService} from './demo/service/nodeservice';
+// import {PhotoService} from './demo/service/photoservice';
+// import {ProductService} from './demo/service/productservice';
 
 // Application services
 import {BreadcrumbService} from './app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
+import { IconsComponent } from './utilities/icons.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
     imports: [
         BrowserModule,
-        FormsModule,
+        ToastModule,
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -169,6 +172,7 @@ import {MenuService} from './app.menu.service';
         CheckboxModule,
         ChipModule,
         ChipsModule,
+        CommonModule,
         ConfirmDialogModule,
         ConfirmPopupModule,
         ColorPickerModule,
@@ -227,14 +231,15 @@ import {MenuService} from './app.menu.service';
         TerminalModule,
         TieredMenuModule,
         TimelineModule,
-        ToastModule,
         ToggleButtonModule,
         ToolbarModule,
         TooltipModule,
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        AppCodeModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     declarations: [
         AppComponent,
@@ -272,19 +277,22 @@ import {MenuService} from './app.menu.service';
         AppCrudComponent,
         AppCalendarComponent,
         AppTimelineDemoComponent,
-        AppLoginComponent,
+        // AppLoginComponent,
         AppInvoiceComponent,
         AppHelpComponent,
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
         BlockViewer,
-        BlocksComponent
+        BlocksComponent,
+        LoginComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, BreadcrumbService
+        MessageService,
+        // CountryService, CustomerService, EventService, IconService, NodeService,
+        // PhotoService, ProductService, 
+        MenuService, BreadcrumbService
     ],
     bootstrap: [AppComponent]
 })

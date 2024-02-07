@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import { Product } from '../demo/domain/product';
-import { ProductService } from '../demo/service/productservice';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import {BreadcrumbService} from '../app.breadcrumb.service';
 import {Table} from 'primeng/table';
+import { ProductService } from '../demo/_service/productservice';
 @Component({
     templateUrl: './app.crud.component.html',
     styleUrls: ['../../assets/demo/badges.scss'],

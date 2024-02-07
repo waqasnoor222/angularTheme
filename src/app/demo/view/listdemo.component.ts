@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import {Product} from '../domain/product';
-import {ProductService} from '../service/productservice';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
+import { ProductService } from '../_service/productservice';
 
 @Component({
     templateUrl: './listdemo.component.html',

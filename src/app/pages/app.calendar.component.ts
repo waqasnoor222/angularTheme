@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {EventService} from '../demo/service/eventservice';
 import {BreadcrumbService} from "../app.breadcrumb.service";
 // @fullcalendar plugins
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { EventService } from '../demo/_service/eventservice';
 
 @Component({
     templateUrl: './app.calendar.component.html',

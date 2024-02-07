@@ -5,7 +5,7 @@
                  'layout-wrapper-overlay-sidebar-active': overlayMenuActive,
                  'layout-wrapper-sidebar-inactive': staticMenuDesktopInactive,
                  'layout-wrapper-sidebar-mobile-active': staticMenuMobileActive, 'p-ripple-disabled': !app.ripple, 'p-input-filled': app.inputStyle === 'filled'}">
-    <app-topbar></app-topbar>
+    <app-topbar></app-topbar>/
 
     <app-megamenu></app-megamenu>
 
@@ -13,7 +13,7 @@
          [ngClass]="{'layout-sidebar-dark': app.menuMode !== 'light',
          'layout-sidebar-gradient':  app.menuMode === 'gradient'}">
         <div class="sidebar-scroll-content">
-            <app-inline-profile *ngIf="app.profileMode=='inline' && !isHorizontal()"></app-inline-profile>
+            <!-- <app-inline-profile *ngIf="app.profileMode=='inline' && !isHorizontal()"></app-inline-profile> -->
             <app-menu></app-menu>
         </div>
     </div>
@@ -21,14 +21,14 @@
     <app-rightpanel></app-rightpanel>
 
     <div class="layout-main">
-        <app-breadcrumb></app-breadcrumb>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
 
         <div class="layout-main-content">
-            <router-outlet></router-outlet>
+            <router-outlet></router-outlet>dfdfdf
         </div>
 
-        <app-footer></app-footer>
+        <!-- <app-footer></app-footer> -->
     </div>
 
-    <app-config></app-config>
+    <!-- <app-config></app-config> -->
 </div>

@@ -1,0 +1,123 @@
+@font-face {
+    src: url(././../../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+    font-family: primary_font_regular;
+}
+
+@font-face {
+    src: url(././../../../assets/fonts/Montserrat/Montserrat-ExtraBold.ttf);
+    font-family: primary_font_bold;
+}
+
+.login-main-section {
+    height: 100vh;
+    overflow: hidden;
+
+    .login-pair-parent {
+        display: flex;
+        height: 100%;
+
+        .form-box {
+            width: 100%;
+            padding: 20px;
+
+            h4 {
+                text-align: left;
+                font-family: primary_font_regular;
+                font-size: 18px;
+                color: #cc292b;
+                font-weight: 800;
+            }
+
+            h1 {
+                text-align: left;
+                font-family: primary_font_bold;
+                margin-bottom: 20px;
+            }
+
+            .input-box {
+                width: 100%;
+                border: 1px solid rgb(0 0 0 / 5%);
+                display: flex;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                position: relative;
+                font-family: primary_font_regular;
+
+
+
+                .left-icon {
+                    width: 13%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #cc292b;
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                    color: white;
+                    font-size: 18px;
+                }
+
+                .right-icon {
+                    position: absolute;
+                    right: 20px;
+                    top: 15px;
+                    cursor: pointer;
+                    color: #cc292b;
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+
+                input {
+                    width: 85%;
+                    border: 0;
+                    padding: 17px 10px;
+                    border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                    font-family: primary_font_regular;
+                    &::placeholder {
+                        font-family: primary_font_regular;
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+
+        .login-left-half {
+            height: 100%;
+            width: 35%;
+            position: relative;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-right-half {
+            width: 65%;
+            position: relative;
+            background: #cc292b;
+
+            .right-box {
+                background-image: url('../../../assets/images/right-new.png');
+                height: 70%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin-top: 100px;
+            }
+
+            p {
+                color: white;
+                font-size: 30px;
+                padding: 16px;
+
+                span {
+                    border-bottom: 2px solid white;
+                }
+            }
+        }
+    }
+}
