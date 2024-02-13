@@ -16,6 +16,7 @@
     src: url(../src/assets/fonts/Montserrat/Montserrat-Bold.ttf);
     font-family: primary_font_bold;
 }
+
 .add-primary-btn {
     background: #cc292b;
     padding: 16px;
@@ -30,4 +31,113 @@
 
 .w-100 {
     width: 100%;
+}
+
+.topbar-main {
+    background: #cc292b;
+    padding: 4px;
+
+    .fa-bars {
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    /* Dropdown */
+
+    .dropdown {
+        display: inline-block;
+        position: relative;
+    }
+
+    .dd-button {
+        display: inline-block;
+        // border: 1px solid gray;
+        border-radius: 4px;
+        // padding: 10px 30px 10px 20px;
+        // background-color: #ffffff;
+        cursor: pointer;
+        font-family: primary_font_regular;
+        color: white;
+        white-space: nowrap;
+
+        img {
+            width: 40px;
+        }
+    }
+
+    .dd-button:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid white;
+    }
+
+    .dd-button:hover {
+        // background-color: #eeeeee;
+    }
+
+
+    .dd-input {
+        display: none;
+    }
+
+    .dd-menu {
+        position: absolute;
+        top: 100%;
+        /* border: 1px solid #ccc; */
+        /* border-radius: 4px; */
+        padding: 0;
+        margin: 2px 0 0 0;
+        /* box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1); */
+        background-color: #ffffff;
+        list-style-type: none;
+        width: 150px;
+        top: 55px;
+        background: #c0c0c029;
+    }
+
+    .dd-input+.dd-menu {
+        display: none;
+    }
+
+    .dd-input:checked+.dd-menu {
+        display: block;
+    }
+
+    .dd-menu li {
+        padding: 14px 20px;
+        cursor: pointer;
+        white-space: nowrap;
+        border-bottom: 1px solid #00000026;
+        font-family: primary_font_regular;
+        transition: 0.5s;
+        text-align: center;
+        &:last-child{
+            border: 0;
+        }
+        &:hover{
+            color: white;
+            background: #cc292b;
+        }
+    }
+    .dd-menu li a {
+        display: block;
+        margin: -10px -20px;
+        padding: 10px 20px;
+    }
+
+    .dd-menu li.divider {
+        padding: 0;
+        border-bottom: 1px solid #cccccc;
+    }
+}
+.layout-wrapper .layout-sidebar .layout-menu > li > a{
+    font-family: primary_font_regular;
 }
