@@ -1,0 +1,107 @@
+<div class="accor-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center">
+          <h4>Employement Add</h4>
+        </div>
+        <div class="col-md-6 text-right">
+          <a class="" routerLink="/layout/employee/employment-list">Employement List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <form [formGroup]="employment" (ngSubmit)="AddEmploymentHistory()" class="container-modal">
+
+    <div class="form-group">
+      <label class="font-weight-bold">Employee </label>
+      <select type="select" value="" class="form-control" formControlName="userid"
+        (change)="FetchData(employment.controls['userid'].value,'update')">
+        <option value=""> -- Choose -- </option>
+        <option *ngFor="let user of listusers" value="{{user.id}}">{{user.full_name}}</option>
+      </select>
+      <div
+        *ngIf="employment.controls['userid'].invalid && (employment.controls['userid'].dirty || employment.controls['userid'].touched)"
+        class="alert">
+        <div *ngIf="employment.controls['userid'].errors">
+          *Employee is required
+        </div>
+      </div>
+    </div>
+    <div formArrayName="employment_history"
+      *ngFor="let creds of employment.controls['employment_history'].value; let i = index;trackBy: trackByFn">
+      <div class="container" [formGroupName]="i">
+        <div class="form-row">
+          <div class="form-group group-1">
+            <label class="font-weight-bold">Company Name</label>
+            <input type="hidden" class="form-control" formControlName="id" placeholder="id">
+            <input type="text" class="form-control" formControlName="company_name" value="{{creds.company_name}}"
+              placeholder="Company name">
+            <!-- <div *ngIf="employment.controls['employment_history'].value.at(i).company_name.invalid && (employment.controls['employment_history'].value.at(i).company_name.dirty || employment.controls['employment_history'].value.at(i).company_name.touched)" class="alert">
+          <div *ngIf="employment.controls['employment_history'].value.at(i).company_name.errors">
+          *Company Name is required
+          </div>
+        </div> -->
+          </div>
+          <div class="form-group group-1">
+            <label class="font-weight-bold">Designation</label>
+            <input type="text" class="form-control" value="{{creds.designation}}" formControlName="designation"
+              placeholder="Designation">
+            <!-- <div *ngIf="employment.controls['employment_history'].value.at(i).designation.invalid && (employment.controls['employment_history'].value.at(i).designation.dirty || employment.controls['employment_history'].value.at(i).designation.touched)" class="alert">
+          <div *ngIf="employment.controls['employment_history'].value.at(i).designation.errors">
+          *Designation is required
+          </div>
+        </div> -->
+          </div>
+          <div class="form-group group-1">
+            <label class="font-weight-bold">Salary</label>
+            <input type="text" class="form-control" formControlName="salary" value="{{creds.salary}}"
+              placeholder="Salary">
+
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="font-weight-bold"> Start Date</label>
+            <input type="date" class="form-control" formControlName="start_date" value="{{creds.start_date}}"
+              placeholder="Start Date">
+            <!-- <div *ngIf="employment.controls['employment_history'].value.at(i).start_date.invalid && (employment.controls['employment_history'].value.at(i).start_date.dirty || employment.controls['employment_history'].value.at(i).start_date.touched)" class="alert">
+          <div *ngIf="employment.controls['employment_history'].value.at(i).start_date.errors">
+          *Start Date is required
+          </div>
+        </div> -->
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold"> End Date</label>
+            <input type="date" class="form-control" formControlName="end_date" value="{{creds.end_date}}"
+              placeholder="End Date">
+            <!-- <div *ngIf="employment.controls['employment_history'].value.at(i).end_date.invalid && (employment.controls['employment_history'].value.at(i).end_date.dirty || employment.controls['employment_history'].value.at(i).end_date.touched)" class="alert">
+          <div *ngIf="employment.controls['employment_history'].value.at(i).end_date.errors">
+          *End Date is required
+          </div>
+        </div> -->
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="font-weight-bold">Reason to Switch</label>
+            <textarea class="form-control" formControlName="reason" row="3" value="{{creds.reason}}"
+              placeholder="Reason"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold">Job Description</label>
+            <textarea class="form-control" formControlName="job_description" row="2"
+              value="{{creds.job_description}}" placeholder="Job Description"></textarea>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-danger" (click)="RemoveEmploymentHistory(i)">Remove </button>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="AddRecord()">Add </button>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+  </form>

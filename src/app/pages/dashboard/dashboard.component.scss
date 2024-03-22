@@ -1,0 +1,204 @@
+@font-face {
+    src: url(../../../assets/fonts/Montserrat/Montserrat-Regular.ttf);
+    font-family: primary_font_regular;
+}
+
+@font-face {
+    src: url(../../../assets/fonts/Montserrat/Montserrat-Bold.ttf);
+    font-family: primary_font_bold;
+}
+
+.wellcome-note-main {
+    background: #c0c0c024;
+    padding: 8px 0;
+    // border: 1px solid #32303024;
+    border-radius: 7px;
+    margin: 3px;
+
+    img {
+        width: 68px;
+        border-radius: 5px;
+        height: 51px;
+    }
+
+    .d-flex {
+        gap: 10px;
+
+        h3 {
+            font-family: primary_font_regular;
+            font-weight: 600;
+            margin: 0;
+            color: #808080e0;
+            margin-bottom: 3px;
+        }
+
+        h6 {
+            font-weight: 600;
+            font-family: primary_font_regular;
+            color: #cc292b;
+            font-style: italic;
+        }
+    }
+}
+
+.dashboard-main {
+    .item {
+        background: #e3e3e324;
+        /* border: 1px solid #8080801c; */
+        border-radius: 7px;
+        padding: 20px;
+        box-shadow: 0px 0px 7px 2px rgb(102 102 102 / 7%);
+        position: relative;
+
+        img {
+            height: 60px;
+            width: 60px;
+            background: #cc292b6e;
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        h4 {
+            font-family: primary_font_regular;
+            font-weight: bold;
+
+        }
+
+        p {
+            font-family: primary_font_regular;
+
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: #cc292b;
+            height: 40px;
+            width: 1px;
+            left: 0;
+            right: 37px;
+            margin: auto;
+            top: 30px;
+        }
+    }
+
+    .task-left-main {
+        background: #e3e3e324;
+        /* border: 1px solid #8080801c; */
+        border-radius: 7px;
+        padding: 20px;
+        box-shadow: 0px 0px 7px 2px rgb(102 102 102 / 7%);
+        position: relative;
+        height: 100%;
+
+        .task-item {
+            background: white;
+            border: 1px solid #8080803b;
+            text-align: center;
+            padding: 10px 0px;
+            margin-top: 8px;
+            border-radius: 5px;
+        }
+
+        .task-box {
+            h4 {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .task-item {
+                h5 {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .task-row {
+            border-bottom: 1px solid #8080803d;
+            padding: 3px 0px;
+
+            h6 {
+                font-weight: bold;
+                // text-align: right;
+            }
+        }
+    }
+
+    .leave-right-box {
+        background: #e3e3e324;
+        /* border: 1px solid #8080801c; */
+        border-radius: 7px;
+        padding: 20px;
+        box-shadow: 0px 0px 7px 2px rgb(102 102 102 / 7%);
+        position: relative;
+        height: 100%;
+
+        h4 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .absent-item {
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            background: #e7a1a275;
+
+            .user-det {
+                h5 {
+                    font-weight: 800;
+                }
+            }
+
+            .status-badge {
+                background: red;
+                width: max-content;
+                margin: auto;
+                border-radius: 20px;
+                padding: 0px 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                padding-bottom: 1px;
+                margin-top: 3px;
+
+                span {
+                    font-size: 10px;
+                }
+            }
+
+            .status-green {
+                background: green;
+                width: max-content;
+                margin: auto;
+                border-radius: 20px;
+                padding: 0px 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                padding-bottom: 1px;
+                margin-top: 3px;
+                span {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        .last-row-btn {
+            button {
+                background: #cc292b;
+                padding: 10px 30px;
+                border: 0;
+                border-radius: 5px;
+                color: white;
+                font-family: primary_font_regular;
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 30px;
+            }
+        }
+    }
+}

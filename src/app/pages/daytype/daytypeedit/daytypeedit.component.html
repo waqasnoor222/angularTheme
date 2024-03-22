@@ -1,0 +1,29 @@
+<p-toast></p-toast>
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Day Type Update</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/daytype/list">Day Type List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form class="form-main" [formGroup]="daytypeform" (ngSubmit)="update()">
+    <input type="hidden" class="form-control" formControlName="id" placeholder="id">
+    <div class="row">
+      <div class="col-md-3">
+        <label class="font-weight-bold">Enter Title</label>
+        <input type="text" class="form-control" formControlName="title" placeholder="Enter Title">
+        <!-- <span *ngIf="">Not Valid</span> -->
+      </div>
+      <div class="col-md-3 d-flex align-items-end">
+        <button type="submit" class="add-primary-btn" [disabled]="daytypeform.invalid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

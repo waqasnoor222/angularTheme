@@ -1,0 +1,116 @@
+<p-confirmDialog #cd id="delete-dailogue" [style]=" {width: '35vw', top: '-190px'} " [baseZIndex]="10000 ">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="cofirm-model-cancel-btn" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Designation List</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/employee/designation-add">Employee Designation add</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="table-main-box">
+    <p-table #designation dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10,25, 50, 100]" [paginator]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [globalFilterFields]="['title','employementType.emptypetitle']" [value]="desinationList" [customSort]="true">
+      <ng-template pTemplate="caption">
+        <div class="flex">
+          <!-- <div class="btn-group" role="group">
+    <button *RoleHasPermission="['Designation.AddNew']" type="button" class="btn btn-outline-dark"  data-toggle="modal" data-target=".modal">Add New</button>
+  </div> -->
+          <!-- <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(employee)"></button> -->
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+          </span>
+
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" class="table">
+        <tr class="table-header">
+          <th>
+            #
+          </th>
+          <th>
+            Title
+          </th>
+          <th>
+
+            Employement Type
+
+          </th>
+          <th style="width: 400px;">
+
+            Description
+
+          </th>
+
+          <th>
+
+            Action
+
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-des let-i="rowIndex">
+        <tr>
+          <td class="font-weight-bold">
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '2rem'; radius:'5%'"> -->
+            {{i+1}}
+            <!-- </ng-container> -->
+          </td>
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '15rem'"> -->
+            {{des.title}} <span hidden>{{des.id}} </span>
+            <!-- </ng-container> -->
+          </td>
+
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '15rem'"> -->
+            {{des.emptype}}<span hidden>{{des.employementType.emptypeid}}</span>
+            <!-- </ng-container> -->
+          </td>
+          <td style="width: 400px;">
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '15rem'"> -->
+            {{des.description}}
+            <!-- </ng-container> -->
+          </td>
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '5rem'">
+        <a *RoleHasPermission="['Designation.Update']" data-toggle="modal" data-target=".modal" class="btn btn-dark" (click)="FetchDesignations(des)"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        <a *RoleHasPermission="['Designation.Delete']" class="btn btn-danger" data-toggle="modal" (click)="DeleteDialog(des.id)" data-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              
+      </ng-container> -->
+
+            <a class="btn btn-danger" (click)="DeleteDesignation(des.id)">
+              <i class="fa fa-trash"></i>
+            </a>
+            <a class="btn btn-danger" (click)="EditDestination(des.id,des.title,des.description,des.emptype,des.emptypetitle)">
+              <i class="fa fa-edit"></i>
+            </a>
+
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No record found</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+
+  </div>
+</div>

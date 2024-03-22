@@ -1,0 +1,122 @@
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Insurance</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/insurance/plan-add">Add Insurance Plan</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="table-main-box">
+  <div class="container">
+    <p-table #insuranceplan dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50]"
+      [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [globalFilterFields]="['plan_name']" [value]="list_InsurancePlan" [customSort]="true"
+      [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="caption">
+        <div class="flex">
+          <!-- <div *RoleHasPermission="['InsurancePlan.AddNew']" class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#InsurancePlanModal">Add
+          New</button>
+      </div> -->
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+          </span>
+
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" class="table">
+        <tr class="table-header" style="background-color: crimson;color: white;">
+          <th style="min-width:2rem">
+            <div class="flex align-items-center">
+              #
+            </div>
+          </th>
+          <th style="min-width:5rem">
+            <div class="flex align-items-center">
+              Plan Name
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Valid Upto
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Hospital Limit
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Room Limit
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Maternity Limit
+            </div>
+          </th>
+          <th style="min-width:5cqmax">
+            <div class="flex align-items-center">
+              Action
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-insuranceplan let-i="rowIndex">
+        <tr>
+          <th>
+
+            {{i+1}}
+          </th>
+          <td>
+
+            {{insuranceplan.plan_name}}
+
+          </td>
+          <td>
+
+            {{insuranceplan.valid_upto | date:'longDate'}}
+
+          </td>
+          <td>
+
+            {{insuranceplan.hospital_limit}} <b>PKR</b>
+
+          </td>
+          <td>
+
+            {{insuranceplan.room_limit}} <b>PKR</b>
+
+          </td>
+          <td>
+
+            <b>Normal: </b>{{insuranceplan.normal_delivery }} <b>PKR</b> <br><b>Complicated:
+            </b>{{insuranceplan.complicated_delivery}} <b>PKR</b>
+
+          </td>
+          <td class="action">
+
+            <button class="btn btn-dark" (click)="FetchData(insuranceplan)" data-toggle="modal"
+              data-target="#InsurancePlanModal"><i class="pi pi-pencil"></i></button>&nbsp;&nbsp;<button
+              class="btn btn-dark" (click)="DeleteDialog(insuranceplan.id)" data-toggle="modal"
+              data-target="#delete_popup"><i class="pi pi-trash"></i></button>
+
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No record found</td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+</div>

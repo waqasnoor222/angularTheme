@@ -1,0 +1,57 @@
+.daytype_main {
+    height: 71vh;
+    overflow: auto;
+
+    .dayType_item {
+        background: whitesmoke;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: 1px solid #8080802b;
+
+        .content-row {
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            align-items: center;
+
+            p {
+                color: white;
+                background: #cc292b;
+                width: 23px;
+                height: 23px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 3px;
+                font-weight: 800;
+            }
+
+            h4 {
+                color: #cc292b;
+                text-transform: capitalize;
+                font-weight: 700;
+                font-size: 17px;
+            }
+        }
+
+        .btn-row {
+            padding: 20px;
+
+            button {
+                width: 100%;
+                background: #717171;
+                border: 0;
+                color: white;
+                padding: 10px 8px;
+                font-size: 16px;
+                border-radius: 4px;
+            }
+
+            .delete-btn {
+                background: #cc292b;
+            }
+        }
+    }
+}

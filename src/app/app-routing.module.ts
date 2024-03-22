@@ -31,6 +31,7 @@ import { BlocksComponent } from './blocks/blocks/blocks.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LayoutComponent } from './pages/layout/layout.component';
+import { authGuard } from './pages/auth/auth.guard';
 
 @NgModule({
     imports: [
@@ -38,8 +39,14 @@ import { LayoutComponent } from './pages/layout/layout.component';
             {
                 path: 'layout', component: AppMainComponent,
                 children: [
+                    { path: 'employee', loadChildren: () => import('../../src/app/pages/employee/employee.module').then(m => m.EmployeeModule) },
+                    { path: 'daytype', loadChildren: () => import('../../src/app/pages/daytype/daytype.module').then(m => m.DaytypeModule), canActivate: [authGuard] },
+                    { path: 'role', loadChildren: () => import('../../src/app/pages/role/role.module').then(m => m.RoleModule), canActivate: [authGuard] },
+                    { path: 'timeslots', loadChildren: () => import('../../src/app/pages/time-slot/time-slot.module').then(m => m.TimeSlotModule), canActivate: [authGuard] },
+                    { path: 'insurance', loadChildren: () => import('../../src/app/pages/insurance/insurance.module').then(m => m.InsuranceModule), canActivate: [authGuard] },
                     { path: '', component: DashboardDemoComponent },
                     { path: 'uikit/formlayout', component: FormLayoutDemoComponent },
+                    { path: 'dashboard', component: DashboardComponent },
                     { path: 'uikit/input', component: InputDemoComponent },
                     { path: 'uikit/floatlabel', component: FloatLabelDemoComponent },
                     { path: 'uikit/invalidstate', component: InvalidStateDemoComponent },
@@ -50,6 +57,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
                     { path: 'uikit/panel', component: PanelsDemoComponent },
                     { path: 'uikit/overlay', component: OverlaysDemoComponent },
                     { path: 'uikit/menu', loadChildren: () => import('./demo/view/menus/menus.module').then(m => m.MenusModule) },
+                    { path: 'employee', loadChildren: () => import('./demo/view/menus/menus.module').then(m => m.MenusModule) },
                     { path: 'uikit/media', component: MediaDemoComponent },
                     { path: 'uikit/message', component: MessagesDemoComponent },
                     { path: 'uikit/misc', component: MiscDemoComponent },

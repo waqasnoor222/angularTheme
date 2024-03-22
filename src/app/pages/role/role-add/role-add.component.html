@@ -1,0 +1,32 @@
+<p-toast></p-toast>
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Add Role</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/role/role-list">Role List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<form class="form-main" [formGroup]="roleForm" (ngSubmit)="Add()">
+  <div class="container">
+    <!-- <input type="hidden" formControlName="id"> -->
+    <div class="row">
+      <div class="col-md-4">
+        <label class="font-weight-bold">User Role</label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+      </div>
+      <div class="col-md-8 d-flex align-items-end justify-content-end mt-3">
+        <button type="button" class="cancel-btn">Cancel</button>
+        <button type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+</form>

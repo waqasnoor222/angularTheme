@@ -1,0 +1,49 @@
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Add Time Slote</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/timeslots/timeslot-list">Time Slot List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <form class="form-main" [formGroup]="timeslotform" (ngSubmit)="UpdateTimeSlot()">
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="font-weight-bold">Check In From</label>
+        <input type="time" class="form-control" formControlName="check_in_from" id="check_in_from"
+          placeholder="Check In From">
+      </div>
+      <div class="col-md-3">
+        <label class="font-weight-bold">Check In To</label>
+        <input type="time" class="form-control" formControlName="check_in_to" id="check_in_to"
+          placeholder="Check In To">
+      </div>
+      <div class="col-md-3">
+        <label class="font-weight-bold">Late After </label>
+        <input type="number" class="form-control" formControlName="late_after" id="late_after"
+          placeholder="Late After (in minutes)">
+      </div>
+      <div class="col-md-3">
+        <label class="font-weight-bold">Half Day After</label>
+        <input type="number" class="form-control" formControlName="halfday_after" id="halfday_after"
+          placeholder="Half Day After (in minutes)">
+      </div>
+    </div>
+
+
+
+    <div class="modal-footer">
+      <button type="button" class="cancel-btn">Cancel</button>
+      <button type="submit" class="btn btn-dark">Save</button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,65 @@
+<form [formGroup]="Insuranceform" (ngSubmit)="save()" class="container-modal">
+  <!-- <button type="button" class="close" (click)="onCloseModal()" #close data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button> -->
+  <div class="form-row">
+    <div class="form-group">
+      <label class="font-weight-bold">Employee </label>
+      <select type="select" value="{{this.Insuranceform.controls['userid'].value}}" class="form-control"
+        (change)="FetchData(this.Insuranceform.controls['userid'].value)" formControlName="userid">
+        <option value=""> -- Choose -- </option>
+        <option *ngFor="let user of listusers" value="{{user.id}}">{{user.full_name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold">Card Number</label>
+      <input type="text" class="form-control" formControlName="card_number"
+        value="{{Insuranceform.controls['card_number'].value}}" placeholder="Card Number">
+    </div>
+    <div class="form-group">
+      <label class="font-weight-bold">Insurance Plan</label>
+      <select type="select" class="form-control" value="" formControlName="insuranceplanid" #relation>
+        <option value="">-- Choose --</option>
+        <option *ngFor="let iplan of list_InsurancePlan" value="{{iplan.id}}">{{ iplan.plan_name}}
+
+        </option>
+      </select>
+    </div>
+  </div>
+  <div formArrayName="insurance"
+    *ngFor="let creds of Insuranceform.controls['insurance'].value; let i = index;trackBy: trackByFn">
+    <div class="container" [formGroupName]="i">
+      <div class="form-row">
+        <div class="form-group group1">
+          <label class="font-weight-bold">Relation</label>
+          <input type="hidden" class="form-control" formControlName="insuranceid">
+
+
+          <select type="select" class="form-control" value="" formControlName="familyid" #relation>
+            <option value="">Self</option>
+            <option *ngFor="let family of listFamily" value="{{family.id}}">{{ family.relation +' - '+family.full_name}}
+
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="font-weight-bold">Description</label>
+        <textarea type="text" class="form-control" formControlName="description" value="{{creds.description}}"
+          placeholder="Description">
+            </textarea>
+      </div>
+      <br>
+      <!-- <div>
+      <button type="button" class="btn btn-danger" (click)="RemoveInsuranceDetails(i)">Remove </button>
+    </div> -->
+      <hr />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-secondary"  
+  (click)="AddRecord()">Add </button> -->
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </div>
+
+</form>

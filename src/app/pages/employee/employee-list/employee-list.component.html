@@ -1,0 +1,182 @@
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Employee List</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/employee/employee-add">Add Employee</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-confirmDialog #cd id="delete-dailogue" [style]=" {width: '35vw', top: '-190px'} " [baseZIndex]="10000 ">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="cofirm-model-cancel-btn" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+
+<div class="container">
+  <div class="table-main-box">
+    <p-table #employee dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10, 25, 50]"
+      [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [globalFilterFields]="['full_name']" [value]="listusers" [customSort]="true"
+      [tableStyle]="{'min-width': '60rem'}">
+      <ng-template pTemplate="caption">
+        <div class="flex">
+          <div class="btn-group" role="group">
+            <!-- <button *RoleHasPermission="['Employee.AddNew']" type="button" class="btn btn-outline-dark"  data-toggle="modal" data-target=".bd-example-modal-lg">Add New</button>
+            <button *RoleHasPermission="['Employee.AddUserRole']" type="button" class="btn btn-outline-dark"  data-toggle="modal" data-target=".user-role">Add User Role</button> -->
+
+          </div>
+          <!-- <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(employee)"></button> -->
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+          </span>
+
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" class="table">
+        <tr class="table-header">
+          <th>
+            <div>
+              #
+            </div>
+          </th>
+          <!-- <th>
+              <div>
+                  Image
+              </div>
+          </th> -->
+          <th>
+            <div>
+              Full Name
+            </div>
+          </th>
+          <th>
+            <div>
+              Email
+            </div>
+          </th>
+          <th>
+            <div>
+              Address
+            </div>
+          </th>
+          <th>
+            <div>
+              Designation
+            </div>
+          </th>
+          <th>
+            <div>
+              Employee Type
+            </div>
+          </th>
+          <th>
+            <div>
+              Phone No
+            </div>
+          </th>
+          <th>
+            <div>
+              Action
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-employee let-i="rowIndex">
+        <tr>
+          <td class="font-weight-bold">
+            <ng-container>
+              {{i+1}}
+            </ng-container>
+          </td>
+          <!-- <td>
+            <ng-container>
+              <img src="{{employee.image}}" width="50px" height="50px">
+            </ng-container>
+          </td> -->
+          <td>
+            <ng-container>
+              {{employee.full_name}}<span hidden>{{employee.username}} </span>
+            </ng-container>
+          </td>
+          <td>
+            <ng-container>
+              <b>Personal: </b> {{employee.personal_email}} <br>
+
+              <span *ngIf="employee.official_email"><b> Official: </b>{{employee.official_email}}</span>
+
+
+
+            </ng-container>
+          </td>
+          <td>
+            <ng-container>
+              <b>Address: </b>{{employee.address}}
+              <span *ngIf="!!employee.permanent_address"> <br><b>Permanent Address: </b>{{employee.permanent_address}}
+              </span>
+            </ng-container>
+          </td>
+
+          <td>
+            <ng-container>
+              {{employee.designation.title}}
+            </ng-container>
+          </td>
+          <td>
+            <ng-container>
+              {{employee.designation.emptype}}
+            </ng-container>
+          </td>
+          <td>
+            <ng-container>
+              <b>Phone No 1: </b>{{employee.phone_number1}}
+              <span *ngIf="employee.phone_number2"><br> <b>Phone No 2: </b> {{employee.phone_number2}}</span>
+
+            </ng-container>
+          </td>
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '100px'; width: '5rem'">
+                <a *RoleHasPermission="['Employee.Update']" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-dark" (click)="FetchUserData(employee)"><i class="pi pi-pencil"></i></a>
+              
+                <a *RoleHasPermission="['Employee.Delete']" class="btn btn-danger" data-toggle="modal" data-target="#Delete" (click)="DeleteDialog(employee.id)"><i class="pi pi-trash"></i></a>
+             
+                <a class="btn btn-dark" (click)="ViewDetails(employee.id)"><i class="pi pi-info"></i></a>
+                
+                <a *RoleHasPermission="['Employee.Settings']" class="btn btn-dark" (click)="Settings(employee.id,employee.slot_id)"><i class="fa fa-gear" aria-hidden="true"></i></a>
+        
+                <a *RoleHasPermission="['Employee.FamilyInfo']" class="btn btn-dark" data-toggle="modal" (click)="FamilyDetails(employee.id)" data-target=".family-modal"><i class="pi pi-users"></i></a>
+            
+              </ng-container> -->
+
+            <div class="action-main">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="pi pi-bars"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item"(click)="ViewDetails(employee.id)" >Details</a>
+                  <a class="dropdown-item" href="#">Edit</a>
+                  <a class="dropdown-item" (click)="deleteEmployee(employee.id)">Delete</a>
+                  <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                </div>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No record found</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

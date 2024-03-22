@@ -1,0 +1,44 @@
+<p-toast></p-toast>
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Designation List</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/employee/designation-list">Employee Designation List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form class="form-main" [formGroup]="designationform" (ngSubmit)="Add()">
+  <div class="container">
+    <input type="hidden" formControlName="id">
+    <div class="row">
+      <div class="col-md-4">
+        <label class="font-weight-bold">Title</label>
+        <input type="text" class="form-control" formControlName="title" id="title" placeholder="Title">
+      </div>
+      <div class="col-md-4">
+        <label class="font-weight-bold">Employement Type</label>
+        <p-dropdown formControlName="emptype" [options]="designation_list"  optionLabel="Employement Type" placeholder="Employement Type" optionLabel="emptypetitle" optionValue="emptypeid"></p-dropdown>
+
+        <!-- <select type="select" id="emptypeid" value="" class="form-control" formControlName="emptypeid" placeholder="Select Employement Type">
+          <option value=""> -- Choose -- </option>
+          <option *ngFor="let employementType of designation_list" value="{{employementType.emptypeid}}">
+            {{employementType.emptypetitle}}</option>
+        </select> -->
+      </div>
+      <div class="col-md-4">
+        <label class="font-weight-bold">Description</label>
+        <textarea class="form-control" formControlName="description" id="description" placeholder="Description">
+        </textarea>
+      </div>
+    </div>
+    <div class="col-md-12 d-flex align-items-end justify-content-end mt-3">
+      <button type="button" class="cancel-btn">Cancel</button>
+      <button type="submit">Save</button>
+    </div>
+  </div>
+</form>

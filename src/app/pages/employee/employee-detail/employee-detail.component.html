@@ -1,0 +1,270 @@
+<div class="container">
+  <!-- <div *ngIf="showLoader">
+    <p style="width: 100%; height :100%; align-self: center;"><img src="/assets/img/loader1.gif" height="40px" width="40px"/>Loading... </p>
+  </div> -->
+    <section style="background-color: #eee; padding: 2% 2% 0% 4%;">
+        <div class="container py-5">
+          
+      
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="{{user.image}}" alt="avatar"
+                      class="rounded-circle img-fluid" style="width: 150px;">
+                  
+                  <h5 class="my-3">
+                      {{user.full_name}}
+                </h5>
+                <p class="text-muted mb-1">
+         
+                 {{user.designation.title}}
+              </p>
+                  <p class="text-muted mb-4">
+                  
+                    {{user.address}}
+                    </p>
+                  <div class="d-flex justify-content-center mb-2">
+                    <!-- <button type="button" class="btn btn-outline-primary ms-1">Message</button> -->
+                  </div>
+                </div>
+              </div>
+              <div class="card mb-4 mb-lg-0">
+                <div class="card-body" >
+                <p class="mb-4"><span class="text-primary font-italic me-1">Family</span> Details
+                </p>
+                <div *ngIf="listfamilyDetails.length!=0;else elseBlock1">
+                <div *ngFor="let family of listfamilyDetails;">
+                  <ul class="list-group list-group-flush rounded-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <p style="font-size: 1rem;" ><b>{{family.relation}}</b></p>
+                    </li>
+                    
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      
+                        <p class="mb-0" style="font-size: .8rem;"> 
+                            <span *ngIf="user.have_insurance" >&#9989;</span> 
+                            {{family.full_name}}
+                          </p>
+                        <p class="mb-0" style="font-size: .8rem;">
+                            {{family.dateofbirth | date: 'MMMM d, y'}}
+                          </p>
+                    </li>
+               
+                    
+                    <hr>
+                  </ul>
+                </div>
+              </div>
+              </div>
+                <ng-template #elseBlock1>
+                  <div class="card-body" *ngIf="familyService.listfamilyDetails">
+                    
+                    <i><p>No Record</p></i>
+                   
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Full Name</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.full_name}}</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                        <p class="mb-0">Username</p>
+                       
+                      </div>
+                      <div class="col-sm-3">
+                        
+                        <p class="text-muted mb-0">{{user.username}}</p>
+                       
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Email</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.personal_email}}</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                        <p class="mb-0">Official Email</p>
+                       
+                      </div>
+                      <div class="col-sm-3">
+                        
+                        <p class="text-muted mb-0">{{user.official_email}}</p>
+                       
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Phone 1</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.phone_number1}}</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                        <p class="mb-0">Phone 2</p>
+                       
+                      </div>
+                      <div class="col-sm-3">
+                        
+                        <p class="text-muted mb-0">{{user.phone_number2}}</p>
+                       
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Employee Type</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.designation.emptype}}</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Role</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.user_role.title}}</p>
+                     
+                    </div>
+                  </div>
+                  
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">City</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.city}}</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Gender</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.gender}}</p>
+                     
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Date of Birth</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <!-- <p class="text-muted mb-0">{{user.dateofbirth | date:'MMMM d, y'}} </p> -->
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="mb-0">Address</p>
+                     
+                    </div>
+                    <div class="col-sm-3">
+                      
+                      <p class="text-muted mb-0">{{user.address}}</p>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card mb-4 mb-md-0">
+                    <div class="card-body" >
+                      <p class="mb-4"><span class="text-primary font-italic me-1">Academics</span> History
+                      </p>
+                      <div *ngIf="listacademics.length!=0;else elseBlock2">
+                      <div *ngFor="let academic of listacademics">
+                        
+                      <p class="mb-1 text-primary" style="font-size: 1.1rem;">{{academic.degree}}</p>
+                         <span style="font-size: .77rem;"> from </span>
+                      <p class="mb-1" style="font-size: 0.8rem;"><b>{{academic.school_name}} </b>
+                        <span style="font-size: .77rem;"> in {{academic.start_date | date:'MMMM, y'}} - {{academic.end_date | date:'MMMM,y'}}</span></p>
+                        <p><span style="font-size: .77rem;"> Secured {{academic.grade}} grade </span></p>
+                       
+                      <hr >
+                    </div>
+                  </div>
+                  <ng-template #elseBlock2>
+                    <div class="card-body p-0">
+                     
+                      <i><p>No Record</p></i>
+                     
+                    </div>
+                  </ng-template>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <p class="mb-4"><span class="text-primary font-italic me-1">Employment</span> History
+                        </p>
+                        <div *ngIf="listemployment.length!=0;else elseBlock3">
+                        <div *ngFor="let employment of listemployment">
+                            <p class="mb-1 text-primary" style="font-size: 1.1rem;">{{employment.designation}}</p>
+                            <span style="font-size: .77rem;"> in </span>
+                            <p class="mb-1" style="font-size: 0.8rem;"><b>{{employment.company_name}} </b>
+                            <span style="font-size: .77rem;"> in {{employment.start_date | date:'MMMM, y'}} - {{employment.end_date | date:'MMMM,y'}}</span></p>
+                       
+                            <hr>
+                        </div>
+                        </div>
+                        <ng-template #elseBlock3>
+                          <div class="card-body p-0">
+                           
+                            <i><p>No Record</p></i>
+                           
+                          </div>
+                        </ng-template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>

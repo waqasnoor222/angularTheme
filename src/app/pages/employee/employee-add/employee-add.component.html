@@ -1,0 +1,374 @@
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Add Employee</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/employee/employee-list">Employee List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form class="form-main" [formGroup]="userform" (ngSubmit)="addorUpdateUser()">
+    <div class="container">
+      <div class="row mb-2">
+        <div class="col-md-3">
+          <input type="hidden" formControlName="id">
+          <input type="hidden" formControlName="enrollment_no">
+          <label class="font-weight-bold">Full Name <span class="staric-sign">*</span></label>
+          <input type="text" formControlName="full_name" class="form-control" id="full_name" placeholder="Full Name">
+          <div
+            *ngIf="userform.controls['full_name'].invalid && (userform.controls['full_name'].dirty || userform.controls['full_name'].touched)"
+            class="alert">
+            <div *ngIf="userform.controls['full_name'].errors">
+              *Full Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="font-weight-bold">Username <span class="staric-sign">*</span></label>
+
+          <input type="text" formControlName="username" class="form-control" placeholder="Username">
+          <div
+            *ngIf="userform.controls['username'].invalid && (userform.controls['username'].dirty || userform.controls['username'].touched)"
+            class="alert">
+            <div *ngIf="userform.controls['username'].errors">
+              *Username is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="group-1" style="padding-top: 1%;">
+            <label class="font-weight-bold">Password <span class="staric-sign">*</span></label>
+            <div class="input-group password-eyes">
+              <input type="password" #password formControlName="password" class="form-control" placeholder="Password">
+              <!-- <div class="input-group-append">
+              <label class="input-group-text">
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </label>
+            </div> -->
+
+            </div>
+            <div
+              *ngIf="userform.controls['password'].invalid && (userform.controls['password'].dirty || userform.controls['password'].touched)"
+              class="alert">
+              <div *ngIf="userform.controls['password'].errors">
+                *Password is required, and should have atleast 8 characters
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-row mb-2">
+            <div class="form-group">
+              <label class="font-weight-bold">Personal Email <span class="staric-sign">*</span></label>
+              <input type="email" formControlName="personal_email" class="form-control" id="Personal_Email"
+                placeholder="Personal Email">
+              <div
+                *ngIf="userform.controls['personal_email'].invalid && (userform.controls['personal_email'].dirty || userform.controls['personal_email'].touched)"
+                class="alert">
+                <div *ngIf="userform.controls['personal_email'].errors">
+                  *Email is required
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row mb-2">
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="font-weight-bold"> Official Email</label>
+            <input type="email" formControlName="official_email" class="form-control" id="Official_Email"
+              placeholder="Official Email">
+          </div>
+
+
+
+        </div>
+        <div class="col-md-3">
+          <div class="form-row mb-2">
+            <div class="form-group">
+              <label class="font-weight-bold">Address <span class="staric-sign">*</span></label>
+              <input type="text" formControlName="address" class="form-control" id="Address" placeholder="1234 Main St">
+              <div
+                *ngIf="userform.controls['address'].invalid && (userform.controls['address'].dirty || userform.controls['address'].touched)"
+                class="alert">
+                <div *ngIf="userform.controls['address'].errors">
+                  *Address is required
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="font-weight-bold">Permanent Address</label>
+
+            <input type="text" formControlName="permanent_address" class="form-control" id="Permanent_Address"
+              placeholder="1234 Main St">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="font-weight-bold">Google Location</label>
+            <input type="text" class="form-control" formControlName="google_location" id="google_location"
+              placeholder="Google Location">
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="font-weight-bold">City</label>
+            <input type="text" class="form-control" formControlName="city" id="city" placeholder="City">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="font-weight-bold">Phone Number 1 <span class="staric-sign">*</span></label>
+          <input type="text" class="form-control" formControlName="phone_number1" id="Phone_number1"
+            placeholder="Phone Number">
+          <div
+            *ngIf="userform.controls['phone_number1'].invalid && (userform.controls['phone_number1'].dirty || userform.controls['phone_number1'].touched)"
+            class="alert">
+            <div *ngIf="userform.controls['phone_number1'].errors">
+              *Phone Number is required
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="font-weight-bold">Phone Number 2</label>
+          <input type="text" class="form-control" formControlName="phone_number2" id="Phone_number2"
+            placeholder="Phone Number">
+        </div>
+
+
+
+
+        <div class="col-md-3">
+          <label class="form-label font-weight-bold">Gender</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="Male" formControlName="gender" id="inlineRadio1">
+            <label class="form-check-label" for="inlineRadio1">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="Female" formControlName="gender" id="inlineRadio2">
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="font-weight-bold"> Date of Birth <span class="staric-sign">*</span></label>
+          <input type="date" class="form-control" formControlName="dateofbirth" id="dateofbirth"
+            placeholder="Date of Birth">
+          <div
+            *ngIf="userform.controls['dateofbirth'].invalid && (userform.controls['dateofbirth'].dirty || userform.controls['dateofbirth'].touched)"
+            class="alert">
+            <div *ngIf="userform.controls['dateofbirth'].errors">
+              *Date of Birth is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="font-weight-bold">Designation <span class="staric-sign">*</span></label>
+          <!-- <select type="select" id="designation" value="" class="form-control" formControlName="designation_id">
+            <option value=""> -- Choose -- </option>
+            <option *ngFor="let designation of designation_list" value="{{designation.id}}">{{designation.emptype }} -
+              {{designation.title}}</option>
+          </select> -->
+
+          <p-dropdown formControlName="designation_id" [options]="designation_list" optionLabel="title"
+            placeholder="Designation" optionLabel="title" optionValue="id"></p-dropdown>
+
+
+
+
+          <div
+            *ngIf="userform.controls['designation_id'].invalid && (userform.controls['designation_id'].dirty || userform.controls['designation_id'].touched)"
+            class="alert">
+            <div *ngIf="userform.controls['designation_id'].errors">
+              *Designation is required
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+          <label class="font-weight-bold">User Role <span class="staric-sign">*</span></label>
+          <!-- <select type="select" id="user_role" value="" class="form-control" #role formControlName="role_id">
+            <option value=""> -- Choose -- </option>
+            <option *ngFor="let user_role of UserRoleList" value="{{user_role.id}}">{{user_role.title}}</option>
+          </select> -->
+
+          <p-dropdown formControlName="role_id" [options]="UserRoleList" optionLabel="title" placeholder="Designation"
+            optionLabel="title" optionValue="id"></p-dropdown>
+
+
+
+          <div
+            *ngIf="userform.controls['role_id'].invalid && (userform.controls['role_id'].dirty || userform.controls['role_id'].touched)"
+            class="alert">
+            <div *ngIf="userform.controls['role_id'].errors">
+              *Role is required
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+          <label class="font-weight-bold">Unit</label>
+          <!-- <select type="select" id="unit" value="0" (change)="UpdateParentList(this.userform.value.unit)"
+            class="form-control" formControlName="unit"> -->
+          <!-- <option value="0"> -- Choose -- </option>
+            <option value="1">Unit 1</option>
+            <option value="2">Unit 2</option> -->
+
+          <p-dropdown formControlName="unit" (onChange)="UpdateParentList(this.userform.value.unit)"
+            [options]="UnitList" optionLabel="title" placeholder="Designation" optionLabel="title"
+            optionValue="id"></p-dropdown>
+
+
+
+          <!-- </select> -->
+
+        </div>
+
+      </div>
+
+
+      <div class="row mb-2">
+
+
+
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-3">
+          <label class="font-weight-bold">Parent</label>
+          <p-dropdown formControlName="parentid" [options]="ParentList" optionLabel="full_name" placeholder="Parent"
+            optionValue="id"></p-dropdown>
+
+
+
+          <!-- <select type="select" id="parentid" value="" class="form-control" formControlName="parentid">
+            <option value=""> -- Choose -- </option>
+            <option *ngFor="let employee of ParentList" value="{{employee.id}}">{{employee.full_name}}</option>
+          </select> -->
+        </div>
+        <div class="col-md-3">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="font-weight-bold form-check-label">
+                Married
+              </label>
+              <input type="checkbox" class="form-check-input" type="checkbox" id="is_married"
+                formControlName="is_married">
+            </div>
+            <div class="col-md-6">
+              <label class="font-weight-bold form-check-label">
+                Have Children
+              </label>
+              <input type="checkbox" class="form-check-input" type="checkbox" id="have_children"
+                formControlName="have_children">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+          <div class="form-wcheck">
+            <label class="font-weight-bold form-check-label">
+              Pre-existing disease
+            </label>
+            <input type="checkbox" #disease class="form-check-input" type="checkbox" id="have_disease"
+              formControlName="have_disease">
+
+          </div>
+          <div *ngIf="disease.checked">
+            <label>If any: </label>
+            <input [disabled]="!disease.checked" class="form-control" formControlName="disease" type="text"
+              id="disease">
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+
+        <div class="col-md-3" *ngIf="this.userform.value.id.length!=0">
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" (click)="LoadInsuranceForm(this.userform.value.id)" #insurance data-toggle="modal"
+                data-target="#employee-insurance" class="form-check-input" formControlName="have_insurance">
+              <label class="font-weight-bold form-check-label">
+                Have Insurance <span *ngIf="insurance_valid" style="color: crimson;"> <i class="fa fa-warning"></i>
+                  expired</span>
+
+              </label>
+              <div *ngIf="insurance.checked">
+                <a data-toggle="modal" href="" (click)="FetchInsurance(this.userform.value.id)"
+                  data-target="#employee-insurance">Show</a>
+              </div>
+            </div>
+
+            <div class="modal fade" id="employee-insurance" data-backdrop="static" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Insurance Form</h5>
+                    <button type="button" class="close" #insurance_modal data-toggle="modal"
+                      data-target="#employee-insurance" (click)="CloseInsurancemodal()" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <app-employee-insurance></app-employee-insurance>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-3">
+          <label class="custom-file-label" for="customFile">{{ uploadFileLabel }}</label>
+          <input type="file" accept="image/*" name="uploadUrl" class="custom-file-input" value={{undefined}}
+            id="customFile" (change)="handleFileInput($any($event.target).files)">
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-outline-dark" ngbTooltip="Upload" (click)="upload()">Upload</button>
+            </div>
+            <div class="col-md-6" style="float:right;">
+              <img [src]="uploadUrl" alt="preview" *ngIf="uploadUrl?.length"
+                class="img-thumbnail rounded shadow w-100 mx-auto d-block">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-5 d-flex align-items-start justify-content-end">
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="submit" class="">Save</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,48 @@
+<p-confirmDialog #cd id="delete-dailogue" [style]=" {width: '35vw', top: '-190px'} " [baseZIndex]="10000 ">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="cofirm-model-cancel-btn" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+<p-toast></p-toast>
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Day Type List</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/daytype/add">Add Day Type</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="daytype_main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of dayTypeList;let i = index;">
+        <div class="dayType_item">
+          <div class="content-row">
+            <div class="">
+              <p class="">{{i+1}}</p>
+            </div>
+            <div class="">
+              <h4>{{item.title}}</h4>
+            </div>
+          </div>
+          <div class="btn-row">
+            <div class="row">
+              <div class="col-md-6">
+                <button (click)="Fetch(item.id,item.title)">Update</button>
+              </div>
+              <div class="col-md-6">
+                <button (click)="deleteDayType(item.id)" class="delete-btn">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

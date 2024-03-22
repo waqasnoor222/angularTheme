@@ -1,0 +1,173 @@
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Insurance</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/insurance/insurance-add">Add Insurance</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="table-main-box">
+  <div class="container">
+    <p-table #insurance dataKey="id" [customSort]="true" [rows]="10" [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10, 25, 50]" [paginator]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [globalFilterFields]="['user.full_name']" [value]="ListInsuranceDetail">
+      <ng-template pTemplate="caption">
+        <div class="flex">
+
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" class="table">
+        <tr class="table-header" style="background-color: crimson;color: white;">
+          <th style="min-width:2rem">
+            <div class="flex align-items-center">
+              #
+            </div>
+          </th>
+          <th style="min-width:5rem">
+            <div class="flex align-items-center">
+              Employee
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Card Number
+            </div>
+          </th>
+          <th style="min-width:5rem">
+            <div class="flex align-items-center">
+              Plan
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Description
+            </div>
+          </th>
+          <th style="min-width:7rem">
+            <div class="flex align-items-center">
+              Relation
+            </div>
+          </th>
+          <th style="min-width:5rem">
+            <div class="flex align-items-center">
+              Total Covered Persons
+            </div>
+          </th>
+          <th style="min-width:5rem">
+            <div class="flex align-items-center">
+              Status
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex align-items-center">
+              Action
+            </div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-insurance let-i="rowIndex">
+        <tr>
+          <th scope="row" *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock">
+
+            {{i+1}}
+
+          </th>
+          <td *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock">
+
+            <b>{{ insurance.user.full_name}} </b><span hidden>{{insurance.id}} </span>
+
+          </td>
+
+          <td *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock">
+
+            {{insurance.card_number}}
+
+          </td>
+          <td *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock">
+
+            <p pTooltip="Hospital Limit: {{insurance.insuranceplan.hospital_limit}}PKR
+        Room Limit: {{insurance.insuranceplan.room_limit}}PKR
+        Normal Delivery Limit: {{insurance.insuranceplan.normal_delivery}}PKR
+        Complicated Delivery Limit: {{insurance.insuranceplan.complicated_delivery}}PKR
+        Valid Upto: {{insurance.insuranceplan.valid_upto | date:'shortDate'}}" tooltipPosition="top" [escape]="false">
+              {{insurance.insuranceplan.plan_name}}
+            </p>
+
+          </td>
+          <td>
+
+            {{insurance.description}}
+
+          </td>
+          <td>
+
+            <span *ngIf="insurance.familydetails.relation!='';else Else;">
+              {{insurance.familydetails.relation }}<span *ngIf="insurance.familydetails.full_name"> -
+                {{insurance.familydetails.full_name}}</span>
+            </span>
+            <ng-template #Else>
+          <td col-span="2">Self
+
+          </td>
+      </ng-template>
+
+      </td>
+      <td *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock">
+
+        <p-badge value="{{insurance.numberofpersonscovered-1}}" size="large" severity="info"></p-badge>
+
+
+      </td>
+      <ng-template #elseBlock>
+        <td col-span="2"></td>
+      </ng-template>
+      <td *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock">
+
+
+        <span *ngIf="insurance.status.length==0 else ElseBlock">
+          <p *ngIf="CheckValidInsuranceStatus(insurance.insuranceplan.valid_upto) else Else">
+            <p-badge [value]="'Expired'" severity="danger"></p-badge>
+          </p>
+          <ng-template #Else>
+            <p-badge [value]="'Active'" severity="success"></p-badge>
+          </ng-template>
+        </span>
+        <ng-template #ElseBlock>
+          <p-badge [value]="insurance.status" severity="warning"></p-badge>
+          <br><i *ngIf="insurance.reason.length>0"> <b>Reason: </b>{{insurance.reason}}</i>
+        </ng-template>
+
+      </td>
+      <td class="action">
+
+        <button *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock" class="btn btn-dark"
+          (click)="FetchData(insurance.userid)" data-toggle="modal" data-target=".insurance"><i
+            class="pi pi-pencil"></i></button>
+        <button class="btn btn-crimson" (click)="DeleteDialog(insurance.id)" data-toggle="modal"
+          data-target="#delete_popup"><i class="pi pi-trash"></i></button>
+        <button *ngIf="(insurance.user.id != null) && (insurance.user.id !='') else elseBlock" class="btn btn-dark"
+          (click)="Save_userid(insurance.userid)" data-toggle="modal" data-target="#cancel_insurance"><i
+            class="fa fa-times" aria-hidden="true"></i></button>
+
+      </td>
+      </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No record found</td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+</div>

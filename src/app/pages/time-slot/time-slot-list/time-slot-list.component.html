@@ -1,0 +1,118 @@
+<!-- [globalFilterFields]="['title','employementType.emptypetitle']" -->
+<p-confirmDialog #cd id="delete-dailogue" [style]=" {width: '35vw', top: '-190px'} " [baseZIndex]="10000 ">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="cofirm-model-cancel-btn" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Time Slots</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/timeslots/timeslot-add">Time Slot add</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="table-main-box">
+    <p-table #designation dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[10,25, 50, 100]" [paginator]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [value]="list_timeslot"
+      [customSort]="true">
+      <ng-template pTemplate="caption">
+        <!-- <div class="flex"> <span class="p-input-icon-left ml-auto">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+    </span>
+  </div> -->
+      </ng-template>
+      <ng-template pTemplate="header" class="table">
+        <tr class="table-header">
+          <th>
+            #
+          </th>
+          <th>
+            Check In From
+          </th>
+          <th>
+
+            Check In To
+
+          </th>
+          <th>
+
+            Late After
+
+          </th>
+
+          <th>
+
+            Half-Day After
+
+          </th>
+
+          <th>
+
+            Action
+
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-type let-i="rowIndex">
+        <tr>
+          <td class="font-weight-bold">
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '2rem'; radius:'5%'"> -->
+            {{i+1}}
+            <!-- </ng-container> -->
+          </td>
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '15rem'"> -->
+            {{type.check_in_from | date: 'shortTime'}}
+            <!-- </ng-container> -->
+          </td>
+
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '15rem'"> -->
+            {{type.check_in_to | date: 'shortTime'}}
+            <!-- </ng-container> -->
+          </td>
+          <td>
+            <!-- <ng-container *skeleton="isLoading; height: '20px'; width: '15rem'"> -->
+            {{type.late_after}} mins
+            <!-- </ng-container> -->
+          </td>
+          <td>
+            {{type.halfday_after}} mins
+          </td>
+          <td>
+            <div class="action-main">
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="pi pi-bars"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" (click)="Fetch(type.id,type.check_in_from,type.check_in_to,type.late_after,type.halfday_after)">Edit</a>
+                  <a class="dropdown-item" (click)="deleteDayType(type.id)">Delete</a>
+                  <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="7">No record found</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>

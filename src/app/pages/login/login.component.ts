@@ -25,7 +25,6 @@ export class LoginComponent {
       this._loginService.login(this.userform.value).subscribe({
         next: (response: any) => {
           if (response) {
-            console.log(response, "rsponse");
             alert
             this._messageService.add({ severity: 'success', summary: 'Successful', detail: 'Login' });
             localStorage.setItem('userid', response.userid)
@@ -33,7 +32,7 @@ export class LoginComponent {
             localStorage.setItem('role', response.role);
             localStorage.setItem('token', response.token);
             setTimeout(() => {
-              this._router.navigate(['layout']);
+              this._router.navigate(['layout/dashboard']);
             }, 2000);
           }
         },

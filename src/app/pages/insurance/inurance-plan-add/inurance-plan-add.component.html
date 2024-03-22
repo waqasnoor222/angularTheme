@@ -1,0 +1,100 @@
+<div class="accor-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-center">
+        <h4>Insurance</h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <a class="" routerLink="/layout/insurance/plan-list">Insurance Plan List</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form class="form-main" [formGroup]="InsurancePlan_form" (ngSubmit)="save()">
+    <div class="row">
+      <div class="col-md-3">
+        <input type="hidden" formControlName="id">
+        <label class="font-weight-bold">Plan Name</label>
+        <input type="text" formControlName="plan_name" class="form-control" id="plan_name" placeholder="Plan Name">
+        <div
+          *ngIf="InsurancePlan_form.controls['plan_name'].invalid && (InsurancePlan_form.controls['plan_name'].dirty || InsurancePlan_form.controls['plan_name'].touched)"
+          class="alert">
+          <div *ngIf="InsurancePlan_form.controls['plan_name'].errors">
+            *Plan Name is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label class="font-weight-bold">Valid Upto</label>
+        <input type="date" formControlName="valid_upto" class="form-control" id="valid_upto" placeholder="Valid Upto">
+        <div
+          *ngIf="InsurancePlan_form.controls['valid_upto'].invalid && (InsurancePlan_form.controls['valid_upto'].dirty || InsurancePlan_form.controls['valid_upto'].touched)"
+          class="alert">
+          <div *ngIf="InsurancePlan_form.controls['valid_upto'].errors">
+            *Valid Upto is required
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label class="font-weight-bold">Hospital Limit</label>
+        <input type="number" formControlName="hospital_limit" class="form-control" id="hospital_limit"
+          placeholder="Hospital Limit">
+        <div
+          *ngIf="InsurancePlan_form.controls['hospital_limit'].invalid && (InsurancePlan_form.controls['hospital_limit'].dirty || InsurancePlan_form.controls['plan_name'].touched)"
+          class="alert">
+          <div *ngIf="InsurancePlan_form.controls['hospital_limit'].errors">
+            *Hospital Limit is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label class="font-weight-bold">Room Limit</label>
+        <input type="number" formControlName="room_limit" class="form-control" id="room_limit" placeholder="Room Limit">
+        <div
+          *ngIf="InsurancePlan_form.controls['room_limit'].invalid && (InsurancePlan_form.controls['room_limit'].dirty || InsurancePlan_form.controls['room_limit'].touched)"
+          class="alert">
+          <div *ngIf="InsurancePlan_form.controls['room_limit'].errors">
+            *Room Limit is required
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h4 class="font-weight-bold mt-1"><b>Maternity Limits</b></h4>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+
+          <label class="font-weight-bold">Normal Delivery Limit</label>
+          <input type="number" formControlName="normal_delivery" class="form-control" id="normal_delivery"
+            placeholder="Normal Delivery">
+          <div
+            *ngIf="InsurancePlan_form.controls['normal_delivery'].invalid && (InsurancePlan_form.controls['normal_delivery'].dirty || InsurancePlan_form.controls['normal_delivery'].touched)"
+            class="alert">
+            <div *ngIf="InsurancePlan_form.controls['normal_delivery'].errors">
+              *Normal Delivery Limit is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label class="font-weight-bold">Complicated Delivery</label>
+          <input type="number" formControlName="complicated_delivery" class="form-control" id="complicated_delivery"
+            placeholder="Complicated Delivery">
+          <div
+            *ngIf="InsurancePlan_form.controls['complicated_delivery'].invalid && (InsurancePlan_form.controls['complicated_delivery'].dirty || InsurancePlan_form.controls['complicated_delivery'].touched)"
+            class="alert">
+            <div *ngIf="InsurancePlan_form.controls['complicated_delivery'].errors">
+              *Complicated Delivery is required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-start justify-content-end mt-4">
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="submit" class="">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
