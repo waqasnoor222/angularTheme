@@ -10,6 +10,7 @@ import { InsuranceAddComponent } from './insurance-add/insurance-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InsurancePlanListComponent } from './insurance-plan-list/insurance-plan-list.component';
 import { InurancePlanAddComponent } from './inurance-plan-add/inurance-plan-add.component';
+import { InsurancePlanEditComponent } from './insurance-plan-edit/insurance-plan-edit.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { InurancePlanAddComponent } from './inurance-plan-add/inurance-plan-add.
     BadgeModule,
     ReactiveFormsModule
   ],
-  declarations: [InsuranceComponent,InsuranceListComponent,InsuranceAddComponent,InsurancePlanListComponent,InurancePlanAddComponent],
+  declarations: [InsuranceComponent,InsuranceListComponent,InsuranceAddComponent,InsurancePlanListComponent,InurancePlanAddComponent,InsurancePlanEditComponent],
   providers: [DatePipe]
 })
 

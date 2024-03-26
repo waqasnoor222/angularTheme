@@ -103,8 +103,9 @@
           </td>
           <td class="action">
 
-            <button class="btn btn-dark" (click)="FetchData(insuranceplan)" data-toggle="modal"
-              data-target="#InsurancePlanModal"><i class="pi pi-pencil"></i></button>&nbsp;&nbsp;<button
+            <button class="btn btn-dark" (click)="Fetch(insuranceplan.id,insuranceplan.plan_name,insuranceplan.valid_upto,insuranceplan.hospital_limit,insuranceplan.room_limit,insuranceplan.normal_delivery,insuranceplan.complicated_delivery)" data-toggle="modal"
+              data-target="#InsurancePlanModal"><i class="pi pi-pencil"></i></button>
+              &nbsp;&nbsp;<button
               class="btn btn-dark" (click)="DeleteDialog(insuranceplan.id)" data-toggle="modal"
               data-target="#delete_popup"><i class="pi pi-trash"></i></button>
 

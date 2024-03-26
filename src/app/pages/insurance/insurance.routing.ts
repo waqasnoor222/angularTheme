@@ -4,6 +4,7 @@ import { InsuranceListComponent } from './insurance-list/insurance-list.componen
 import { InsuranceAddComponent } from './insurance-add/insurance-add.component';
 import { InsurancePlanListComponent } from './insurance-plan-list/insurance-plan-list.component';
 import { InurancePlanAddComponent } from './inurance-plan-add/inurance-plan-add.component';
+import { InsurancePlanEditComponent } from './insurance-plan-edit/insurance-plan-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -11,9 +12,8 @@ const routes: Routes = [
   { path: 'insurance-add', component: InsuranceAddComponent },
   { path: 'plan-list', component: InsurancePlanListComponent },
   { path: 'plan-add', component: InurancePlanAddComponent },
+  { path: 'plan-edit', component: InsurancePlanEditComponent },
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
