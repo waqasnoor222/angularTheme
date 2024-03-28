@@ -44,7 +44,7 @@ export class TimeSlotEditComponent implements OnInit {
           },
           error : (error:any)=> 
           {
-            console.log(error)
+            // console.log(error)
             // this.notifyService.showError("Failed Updating existing Record","Failed");
           }
           });

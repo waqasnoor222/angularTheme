@@ -34,4 +34,8 @@ export class InsuranceService {
   {
     return this._httpClient.post<any>(`${environment.apiUrl}/api/InsurancePlan`,insurancePlan);
   }
+  deleteInsurancePlan(id:string)
+  {
+    return this._httpClient.delete<any>(`${environment.apiUrl}/api/InsurancePlan/${id}`);
+  }
 }

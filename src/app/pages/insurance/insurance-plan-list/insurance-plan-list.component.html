@@ -1,3 +1,10 @@
+<p-confirmDialog #cd id="delete-dailogue" [style]=" {width: '35vw', top: '-190px'} " [baseZIndex]="10000 ">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="cofirm-model-cancel-btn" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+
 <div class="accor-header">
   <div class="container">
     <div class="row">
@@ -32,40 +39,40 @@
       </ng-template>
       <ng-template pTemplate="header" class="table">
         <tr class="table-header" style="background-color: crimson;color: white;">
-          <th style="min-width:2rem">
-            <div class="flex align-items-center">
+          <th>
+            
               #
-            </div>
+           
           </th>
-          <th style="min-width:5rem">
-            <div class="flex align-items-center">
+          <th>
+            
               Plan Name
-            </div>
+           
           </th>
-          <th style="min-width:10rem">
-            <div class="flex align-items-center">
+          <th>
+            
               Valid Upto
-            </div>
+         
           </th>
-          <th style="min-width:10rem">
-            <div class="flex align-items-center">
+          <th>
+            
               Hospital Limit
-            </div>
+            
           </th>
-          <th style="min-width:10rem">
-            <div class="flex align-items-center">
+          <th>
+            
               Room Limit
-            </div>
+            
           </th>
-          <th style="min-width:10rem">
-            <div class="flex align-items-center">
+          <th>
+            
               Maternity Limit
-            </div>
+            
           </th>
           <th style="min-width:5cqmax">
-            <div class="flex align-items-center">
+            
               Action
-            </div>
+            
           </th>
         </tr>
       </ng-template>
@@ -103,11 +110,25 @@
           </td>
           <td class="action">
 
-            <button class="btn btn-dark" (click)="Fetch(insuranceplan.id,insuranceplan.plan_name,insuranceplan.valid_upto,insuranceplan.hospital_limit,insuranceplan.room_limit,insuranceplan.normal_delivery,insuranceplan.complicated_delivery)" data-toggle="modal"
+            <!-- <button class="btn btn-dark" (click)="Fetch(insuranceplan.id,insuranceplan.plan_name,insuranceplan.valid_upto,insuranceplan.hospital_limit,insuranceplan.room_limit,insuranceplan.normal_delivery,insuranceplan.complicated_delivery)" data-toggle="modal"
               data-target="#InsurancePlanModal"><i class="pi pi-pencil"></i></button>
               &nbsp;&nbsp;<button
               class="btn btn-dark" (click)="DeleteDialog(insuranceplan.id)" data-toggle="modal"
-              data-target="#delete_popup"><i class="pi pi-trash"></i></button>
+              data-target="#delete_popup"><i class="pi pi-trash"></i></button> -->
+
+              <div class="action-main">
+                <div class="dropdown">
+                  <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="pi pi-bars"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" (click)="Fetch(insuranceplan.id,insuranceplan.plan_name,insuranceplan.valid_upto,insuranceplan.hospital_limit,insuranceplan.room_limit,insuranceplan.normal_delivery,insuranceplan.complicated_delivery)">Edit</a>
+                    <a class="dropdown-item" (click)="DeleteRecord(insuranceplan.id)">Delete</a>
+                    <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+                  </div>
+                </div>
+              </div>
 
           </td>
         </tr>

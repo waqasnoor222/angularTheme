@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InsurancePlanListComponent } from './insurance-plan-list/insurance-plan-list.component';
 import { InurancePlanAddComponent } from './inurance-plan-add/inurance-plan-add.component';
 import { InsurancePlanEditComponent } from './insurance-plan-edit/insurance-plan-edit.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -19,10 +21,11 @@ import { InsurancePlanEditComponent } from './insurance-plan-edit/insurance-plan
     TableModule,
     TooltipModule,
     BadgeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmDialogModule
   ],
   declarations: [InsuranceComponent,InsuranceListComponent,InsuranceAddComponent,InsurancePlanListComponent,InurancePlanAddComponent,InsurancePlanEditComponent],
-  providers: [DatePipe]
+  providers: [DatePipe, ConfirmationService]
 })
 
 export class InsuranceModule { }

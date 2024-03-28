@@ -24,7 +24,7 @@ export class InsuranceListComponent implements OnInit {
   LoadInsurance() {
     this._insurance_service.getAllInsurancePlan().subscribe(list => {
       this.list_InsurancePlan = list
-      console.log(this.list_InsurancePlan);
+      // console.log(this.list_InsurancePlan);
 
     });
 

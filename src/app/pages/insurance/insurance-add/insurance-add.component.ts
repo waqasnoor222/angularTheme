@@ -46,7 +46,7 @@ export class InsuranceAddComponent implements OnInit {
   AddorUpdateInsuranceRecord( InsuranceDetail : Insurance) {
     // this.InsuranceService.InsuranceDetailList=[];
     if (this.Insuranceform.valid) {
-      console.log(this.Insuranceform)
+      // console.log(this.Insuranceform)
       for (let i = 0; i < this.Insuranceform.controls['insurance'].value.length; i++) {
         InsuranceDetail.card_number = this.Insuranceform.controls["card_number"].value;
         InsuranceDetail.description = this.Insuranceform.controls["insurance"].value.at(i).description;

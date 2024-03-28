@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { InsurancePlan } from '../model/insurance-plan';
 import { InsuranceService } from '../services/insurance.service';
 import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-insurance-plan-list',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class InsurancePlanListComponent implements OnInit {
   list_InsurancePlan: InsurancePlan[]
-  constructor( private _insuranceService : InsuranceService, private router : Router) { }
+  constructor(private confirmService : ConfirmationService, private _insuranceService : InsuranceService, private router : Router) { }
 
   ngOnInit() {
     this.getAllInsurancePlan();
@@ -18,7 +20,7 @@ export class InsurancePlanListComponent implements OnInit {
   getAllInsurancePlan() {
     this._insuranceService.getAllInsurancePlan().subscribe(response=>{
       this.list_InsurancePlan = response;
-      console.log(this.list_InsurancePlan);
+      // console.log(this.list_InsurancePlan);
       
     })
   }
@@ -46,5 +48,28 @@ export class InsurancePlanListComponent implements OnInit {
      }
      );
   }
-
+  DeleteRecord(Id) {
+    console.log(Id);
+    
+    this.confirmService.confirm({
+      message: 'Do you want to delete?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this._insuranceService.deleteInsurancePlan(Id)
+          .pipe(first()).subscribe({
+            next: response => {
+              // this.eventChange.emit(response.result);
+              // this._messageService.add({ severity: 'success', summary: 'Day Type', detail: 'Delete Success Fully' });
+              // this.LoadDayType();
+            },
+            error: error => {
+              // this._messageService.add({ severity: 'error', summary: 'Failed', detail: error.error.message, life: 3000 });
+            }
+          });
+      },
+      reject: () => {
+      }
+    });
+  }
 }

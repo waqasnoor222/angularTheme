@@ -43,7 +43,7 @@ export class TimeSlotAddComponent implements OnInit {
         },
         error : (error:any)=> 
         {
-          console.log(error)
+          // console.log(error)
           // this.notifyService.showError("Failed Adding the Record","Failed");
         }
         });
@@ -61,7 +61,7 @@ export class TimeSlotAddComponent implements OnInit {
           },
           error : (error:any)=> 
           {
-            console.log(error)
+            // console.log(error)
             // this.notifyService.showError("Failed Updating existing Record","Failed");
           }
           });

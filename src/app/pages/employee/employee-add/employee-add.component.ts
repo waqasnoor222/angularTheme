@@ -130,7 +130,7 @@ export class EmployeeAddComponent implements OnInit {
   getAllDropList() {
     this._service.getParent().subscribe(list => {
       this.ParentList = list;
-      console.log(this.ParentList);
+      // console.log(this.ParentList);
 
     })
 
